@@ -1,7 +1,7 @@
-package co.uk.indeliblegames.growlithe;
+package co.uk.shadowchild.growlithe;
 
-import co.uk.indeliblegames.growlithe.bot.GrowlitheBot;
-import co.uk.indeliblegames.growlithe.gui.GrowlitheUI;
+import co.uk.shadowchild.growlithe.bot.GrowlitheBot;
+import co.uk.shadowchild.growlithe.gui.GrowlitheUI;
 import com.google.gson.stream.JsonReader;
 
 import java.io.BufferedReader;
@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * @author ShadowChild.
@@ -27,7 +28,7 @@ public class Growlithe {
             ui = new GrowlitheUI();
             bot = new GrowlitheBot(loadProfile());
 
-        } catch (Exception e) {
+        } catch(Exception e) {
 
             e.printStackTrace();
             System.exit(1);
@@ -40,7 +41,7 @@ public class Growlithe {
 
         File profile = new File(".", "profile.json");
         BufferedReader br;
-        if (profile.exists()) {
+        if(profile.exists()) {
 
             br = new BufferedReader(new InputStreamReader(profile.toURI().toURL().openStream()));
         } else {
@@ -51,59 +52,59 @@ public class Growlithe {
 
         jsonReader.beginObject();
 
-        while (jsonReader.hasNext()) {
+        while(jsonReader.hasNext()) {
 
             String name = jsonReader.nextName();
 
-            if (name != null) {
+            if(name != null) {
 
-                if (name.equals("profile")) {
+                if(name.equals("profile")) {
 
                     jsonReader.beginObject();
 
-                    while (jsonReader.hasNext()) {
+                    while(jsonReader.hasNext()) {
 
                         String n = jsonReader.nextName();
 
-                        if (n.equals("nick")) {
+                        if(n.equals("nick")) {
 
                             map.put("nick", jsonReader.nextString());
                         }
 
-                        if (n.equals("server")) {
+                        if(n.equals("server")) {
 
                             map.put("server", jsonReader.nextString());
                         }
 
-                        if (n.equals("port")) {
+                        if(n.equals("port")) {
 
                             map.put("port", jsonReader.nextInt());
                         }
 
-                        if (n.equals("realName")) {
+                        if(n.equals("realName")) {
 
                             map.put("realName", jsonReader.nextString());
                         }
 
-                        if (n.equals("login")) {
+                        if(n.equals("login")) {
 
                             map.put("login", jsonReader.nextString());
                         }
 
-                        if (n.equals("channels")) {
+                        if(n.equals("channels")) {
 
                             ArrayList<String> list = new ArrayList<String>();
 
                             jsonReader.beginArray();
 
-                            while (jsonReader.hasNext()) {
+                            while(jsonReader.hasNext()) {
 
                                 list.add(jsonReader.nextString());
                             }
                             jsonReader.endArray();
                             map.put("channels", list);
                         }
-                        if (n.equals("password")) {
+                        if(n.equals("password")) {
 
                             map.put("password", jsonReader.nextString());
                         }

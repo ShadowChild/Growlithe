@@ -1,10 +1,11 @@
-package co.uk.indeliblegames.growlithe.gui;
+package co.uk.shadowchild.growlithe.gui;
 
-import co.uk.indeliblegames.growlithe.Growlithe;
+import co.uk.shadowchild.growlithe.Growlithe;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class GrowlitheJPanel extends JPanel {
 
@@ -50,11 +51,11 @@ public class GrowlitheJPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            if (e.getActionCommand().equals("SendRaw") && !textBox.getText().isEmpty()) {
+            if(e.getActionCommand().equals("SendRaw") && !textBox.getText().isEmpty()) {
 
                 Growlithe.bot.sendRawLine(textBox.getText());
                 textBox.setText("");
-            } else if (e.getActionCommand().equals("Send") && !textBox.getText().isEmpty()) {
+            } else if(e.getActionCommand().equals("Send") && !textBox.getText().isEmpty()) {
 
                 Growlithe.bot.sendMessage(channel.getText(), textBox.getText());
                 textBox.setText("");

@@ -1,7 +1,8 @@
-package co.uk.indeliblegames.growlithe.gui;
+package co.uk.shadowchild.growlithe.gui;
 
 import javax.swing.*;
 import java.awt.*;
+
 
 public class GrowlitheUI extends JFrame {
 
