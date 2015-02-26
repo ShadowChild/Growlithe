@@ -66,32 +66,13 @@ public class Growlithe {
 
                         String n = jsonReader.nextName();
 
-                        if(n.equals("nick")) {
-
-                            map.put("nick", jsonReader.nextString());
-                        }
-
-                        if(n.equals("server")) {
-
-                            map.put("server", jsonReader.nextString());
-                        }
-
                         if(n.equals("port")) {
 
                             map.put("port", jsonReader.nextInt());
-                        }
-
-                        if(n.equals("realName")) {
-
-                            map.put("realName", jsonReader.nextString());
-                        }
-
-                        if(n.equals("login")) {
+                        } else if(n.equals("login")) {
 
                             map.put("login", jsonReader.nextString());
-                        }
-
-                        if(n.equals("channels")) {
+                        } else if(n.equals("channels")) {
 
                             ArrayList<String> list = new ArrayList<String>();
 
@@ -103,10 +84,9 @@ public class Growlithe {
                             }
                             jsonReader.endArray();
                             map.put("channels", list);
-                        }
-                        if(n.equals("password")) {
-
-                            map.put("password", jsonReader.nextString());
+                        } else {
+                            
+                            map.put(n, jsonReader.nextString());
                         }
                     }
                     jsonReader.endObject();
