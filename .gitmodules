@@ -1,0 +1,3 @@
+[submodule "ShadowCommon"]
+	path = ShadowCommon
+	url = https://github.com/ShadowChild/ShadowCommon.git
