@@ -1,9 +1,8 @@
-package io.github.shadowchild.growlithe;
+package co.uk.shadowchild.growlithe;
 
-
+import co.uk.shadowchild.growlithe.bot.GrowlitheBot;
+import co.uk.shadowchild.growlithe.gui.GrowlitheUI;
 import com.google.gson.stream.JsonReader;
-import io.github.shadowchild.growlithe.bot.GrowlitheBot;
-import io.github.shadowchild.growlithe.gui.GrowlitheUI;
 
 import java.io.BufferedReader;
 import java.io.File;

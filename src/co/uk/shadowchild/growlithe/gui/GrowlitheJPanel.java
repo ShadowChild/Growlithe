@@ -1,7 +1,6 @@
-package io.github.shadowchild.growlithe.gui;
+package co.uk.shadowchild.growlithe.gui;
 
-
-import io.github.shadowchild.growlithe.Growlithe;
+import co.uk.shadowchild.growlithe.Growlithe;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
