@@ -1,9 +1,9 @@
-package co.uk.shadowchild.growlithe.bot;
+package io.github.shadowchild.growlithe.bot;
 
-import co.uk.shadowchild.growlithe.Growlithe;
-import org.jibble.pircbot.IrcException;
-import org.jibble.pircbot.PircBot;
-import org.jibble.pircbot.User;
+
+import io.github.shadowchild.growlithe.Growlithe;
+import org.pircbotx.User;
+import org.pircbotx.exception.IrcException;
 
 import java.io.IOException;
 import java.util.ArrayList;

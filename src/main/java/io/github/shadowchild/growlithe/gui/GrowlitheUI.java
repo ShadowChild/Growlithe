@@ -1,4 +1,4 @@
-package co.uk.shadowchild.growlithe.gui;
+package io.github.shadowchild.growlithe.gui;
 
 import javax.swing.*;
 import java.awt.*;
