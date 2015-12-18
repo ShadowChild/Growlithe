@@ -80,7 +80,8 @@ public class ProfileParser {
 
         try {
 
-            new GrowlitheBot(builder.buildConfiguration()).startBot();
+            Growlithe.bot = new GrowlitheBot(builder.buildConfiguration());
+            Growlithe.bot.startBot();
         } catch(IOException | IrcException e) {
 
             e.printStackTrace();

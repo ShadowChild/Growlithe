@@ -8,5 +8,6 @@ public enum EnumPermission {
 
     FIRE_STONE,
     GROWLITHE,
-    ARCANINE
+    ARCANINE,
+    SUPER_ADMIN
 }

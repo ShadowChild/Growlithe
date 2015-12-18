@@ -18,4 +18,9 @@ public class GrowlitheBot extends PircBotX {
 
         super(configuration);
     }
+
+    public void shutdown() {
+
+        this.shutdown(true);
+    }
 }
