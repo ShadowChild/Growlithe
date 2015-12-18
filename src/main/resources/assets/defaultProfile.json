@@ -1,0 +1,13 @@
+{
+  "profile": {
+    "nick": "Growlithe",
+    "server": "irc.esper.net",
+    "port": 5555,
+    "realName": "Growlithe v1.0",
+    "login": "Growlithe",
+    "channels": [
+      "#ShadowChild"
+    ],
+    "password": "onlyIfYouHaveOne, if not, remove this line"
+  }
+}

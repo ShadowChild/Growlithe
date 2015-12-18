@@ -5,3 +5,4 @@ lib/
 out/
 runtime/
 target/
+src/main/resources/assets/profile.json
