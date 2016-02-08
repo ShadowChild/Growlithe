@@ -7,7 +7,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import io.github.shadowchild.growlithe.Growlithe;
-import io.github.shadowchild.growlithe.bot.CommandListener;
 import io.github.shadowchild.growlithe.bot.GrowlitheBot;
 import org.pircbotx.Configuration;
 import org.pircbotx.exception.IrcException;
@@ -76,7 +75,7 @@ public class ProfileParser {
 
         JsonArray array = object.getAsJsonArray("channels");
         array.forEach(jsonElement -> builder.addAutoJoinChannel(jsonElement.getAsString()));
-        builder.addListener(new CommandListener());
+        builder.addListener(Growlithe.listener);
 
         try {
 

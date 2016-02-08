@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>io.github.shadowchild</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>cybernize-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

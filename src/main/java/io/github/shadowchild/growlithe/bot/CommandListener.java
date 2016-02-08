@@ -1,8 +1,6 @@
 package io.github.shadowchild.growlithe.bot;
 
 
-import io.github.shadowchild.growlithe.bot.command.CommandHelp;
-import io.github.shadowchild.growlithe.bot.command.CommandPokeball;
 import io.github.shadowchild.growlithe.bot.command.ICommand;
 import org.apache.commons.lang3.StringUtils;
 import org.pircbotx.hooks.ListenerAdapter;
@@ -17,12 +15,12 @@ import java.util.Map;
 public class CommandListener extends ListenerAdapter<GrowlitheBot> {
 
     // String is the command alias
-    public static Map<String, ICommand> commandMap = new HashMap<>();
+    private static Map<String, ICommand> commandMap = new HashMap<>();
 
     public CommandListener() {
 
-        commandMap.put("help", new CommandHelp());
-        commandMap.put("pokeball", new CommandPokeball());
+//        commandMap.put("help", new CommandHelp());
+//        commandMap.put("pokeball", new CommandPokeball());
     }
 
     @Override
@@ -46,5 +44,20 @@ public class CommandListener extends ListenerAdapter<GrowlitheBot> {
                 event.respond("Invalid Command Entered");
             }
         }
+    }
+
+    public static void addCommand(String name, ICommand command) {
+
+        commandMap.put(name, command);
+    }
+
+    public static void removeCommand(String name) {
+
+        commandMap.remove(name);
+    }
+
+    public static Map<String, ICommand> getCommandMap() {
+
+        return commandMap;
     }
 }

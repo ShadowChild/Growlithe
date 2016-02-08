@@ -1,8 +1,10 @@
 package io.github.shadowchild.growlithe;
 
 
+import io.github.shadowchild.growlithe.bot.CommandListener;
 import io.github.shadowchild.growlithe.bot.GrowlitheBot;
 import io.github.shadowchild.growlithe.parsers.ArgumentParser;
+import io.github.shadowchild.growlithe.parsers.CommandListParser;
 import io.github.shadowchild.growlithe.parsers.ProfileParser;
 
 
@@ -12,11 +14,14 @@ import io.github.shadowchild.growlithe.parsers.ProfileParser;
 public class Growlithe {
 
     public static GrowlitheBot bot;
+    public static CommandListener listener;
 
     public static void main(String... args) {
 
-        new ArgumentParser().parse(args);
+        new ArgumentParser().parseMultiple(args);
 
+        listener = new CommandListener();
+        CommandListParser.parse();
         ProfileParser.parse();
     }
 }
