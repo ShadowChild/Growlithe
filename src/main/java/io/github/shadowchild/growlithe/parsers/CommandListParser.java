@@ -25,17 +25,18 @@ public class CommandListParser {
         JsonReader jr = new JsonReader(reader);
         JsonParser jp = new JsonParser();
         JsonElement element = jp.parse(jr);
+        
+        JsonObject root = element.getAsJsonObject();
+        JsonObject commands = root.getAsJsonObject("commands");
 
-        JsonObject object = element.getAsJsonObject().getAsJsonObject("commands");
-
-        for(Map.Entry<String, JsonElement> e : object.entrySet()) {
+        for(Map.Entry<String, JsonElement> e : commands.entrySet()) {
 
             try {
 
                 Class clazz = Class.forName(e.getValue().getAsString());
                 Object obj = clazz.newInstance();
                 if(!(obj instanceof ICommand))
-                    throw new InvalidObjectException("Command does not extend ICommand");
+                    throw new InvalidObjectException(String.format("Class %s does not extend ICommand", e.getValue().getAsString()));
 
                 ICommand command = (ICommand)obj;
                 CommandListener.addCommand(e.getKey(), command);
@@ -43,8 +44,6 @@ public class CommandListParser {
 
                 e1.printStackTrace();
             }
-            System.out.println(e.getKey());
-            System.out.println(e.getValue().getAsString());
         }
     }
 }
