@@ -6,6 +6,7 @@ import io.github.shadowchild.growlithe.bot.GrowlitheBot;
 import io.github.shadowchild.growlithe.parsers.ArgumentParser;
 import io.github.shadowchild.growlithe.parsers.CommandListParser;
 import io.github.shadowchild.growlithe.parsers.ProfileParser;
+import io.github.shadowchild.growlithe.utils.ConfigHandler;
 
 
 /**
@@ -20,8 +21,9 @@ public class Growlithe {
 
         new ArgumentParser().parseMultiple(args);
 
+        ConfigHandler.handle();
         listener = new CommandListener();
-        CommandListParser.parse();
+        CommandListParser.rebuildCommandList();
         ProfileParser.parse();
     }
 }

@@ -2,6 +2,8 @@ package io.github.shadowchild.growlithe.bot.command;
 
 
 import io.github.shadowchild.growlithe.utils.EnumPermission;
+
+import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 
 import java.util.Map;
@@ -12,7 +14,7 @@ import java.util.Map;
 public class CommandHelp implements ICommand {
 
     @Override
-    public void onMessage(MessageEvent evt, String[] processedArgs) {
+    public void onMessage(MessageEvent<? extends PircBotX> evt, String[] processedArgs) {
 
         System.out.println("Help");
     }

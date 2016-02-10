@@ -7,7 +7,10 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import io.github.shadowchild.growlithe.Growlithe;
 import io.github.shadowchild.growlithe.bot.CommandListener;
+import io.github.shadowchild.growlithe.bot.command.CommandHelp;
+import io.github.shadowchild.growlithe.bot.command.CommandPokeball;
 import io.github.shadowchild.growlithe.bot.command.ICommand;
+import io.github.shadowchild.growlithe.utils.Settings;
 
 import java.io.InputStreamReader;
 import java.io.InvalidObjectException;
@@ -18,7 +21,7 @@ import java.util.Map;
  */
 public class CommandListParser {
 
-    public static void parse() {
+    private static void parse() {
 
         InputStreamReader reader = new InputStreamReader(Growlithe.class.getResourceAsStream("/assets/commands.json"));
 
@@ -45,5 +48,23 @@ public class CommandListParser {
                 e1.printStackTrace();
             }
         }
+    }
+    
+    public static void rebuildCommandList() {
+    	
+    	// clear the command list
+    	CommandListener.getCommandRegistry().clearRegistry();
+    	
+    	// add default commands, if enabled in settings
+    	if(Settings.helpCommandActive) CommandListener.addCommand("help", new CommandHelp());
+    	if(Settings.shutdownCommandActive) {
+    		
+    		CommandPokeball pokeballCmd = new CommandPokeball();
+    		CommandListener.addCommand("pokeball", pokeballCmd);
+    		CommandListener.addCommand("shutdown", pokeballCmd);
+    	}
+    	
+    	// parse commands now
+    	parse();
     }
 }

@@ -1,7 +1,5 @@
 {
   "commands": {
-    "help": "io.github.shadowchild.growlithe.bot.command.CommandHelp",
-    "shutdown": "io.github.shadowchild.growlithe.bot.command.CommandPokeball",
-    "pokeball": "io.github.shadowchild.growlithe.bot.command.CommandPokeball"
+    
   }
 }

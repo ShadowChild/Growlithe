@@ -1,8 +1,16 @@
 .idea/
 Growlithe.iml
 META-INF/
-lib/
+libs/
 out/
 runtime/
 target/
+build/
+
+# Explicit references
 src/main/resources/assets/profile.json
+
+# Eclipse stuff
+*.classpath
+*.prefs
+*.project
