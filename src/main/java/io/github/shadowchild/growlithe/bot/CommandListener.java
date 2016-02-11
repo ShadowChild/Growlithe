@@ -3,14 +3,9 @@ package io.github.shadowchild.growlithe.bot;
 
 import io.github.shadowchild.cybernize.reg.NamedRegistry;
 import io.github.shadowchild.growlithe.bot.command.ICommand;
-import io.github.shadowchild.growlithe.parsers.CommandListParser;
-
 import org.apache.commons.lang3.StringUtils;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Zach Piddock on 18/12/2015.
@@ -22,6 +17,7 @@ public class CommandListener extends ListenerAdapter<GrowlitheBot> {
 
     public CommandListener() {
 
+        commandRegistry.setIgnoreValueOnRegister(true);
 //        commandMap.put("help", new CommandHelp());
 //        commandMap.put("pokeball", new CommandPokeball());
     }
@@ -37,19 +33,13 @@ public class CommandListener extends ListenerAdapter<GrowlitheBot> {
             String[] args = message.replace("-" + event.getBot().getNick().toLowerCase() + " ", "").split(" ");
             String command = args[0];
 
-            if(command.equalsIgnoreCase("refreshcmds")) {
-            	
-            	CommandListParser.rebuildCommandList();
-            	event.respond("Rebuilding my command list, please wait about 60 seconds");
-            	return;
-            }
-            
-            System.out.println(command);
+            String[] processedArgs = new String[args.length - 1];
+            System.arraycopy(args, 1, processedArgs, 0, args.length - 1);
 
             Object obj = commandRegistry.getObject(command);
             if(obj != null) {
 
-                ((ICommand)obj).onMessage(event, args);
+                ((ICommand)obj).onMessage(event, processedArgs);
             } else {
 
                 event.respond("Invalid Command Entered");

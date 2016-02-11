@@ -9,6 +9,7 @@ import io.github.shadowchild.growlithe.Growlithe;
 import io.github.shadowchild.growlithe.bot.CommandListener;
 import io.github.shadowchild.growlithe.bot.command.CommandHelp;
 import io.github.shadowchild.growlithe.bot.command.CommandPokeball;
+import io.github.shadowchild.growlithe.bot.command.CommandRefresh;
 import io.github.shadowchild.growlithe.bot.command.ICommand;
 import io.github.shadowchild.growlithe.utils.Settings;
 
@@ -43,6 +44,8 @@ public class CommandListParser {
 
                 ICommand command = (ICommand)obj;
                 CommandListener.addCommand(e.getKey(), command);
+                System.out.printf("Registering Command %s, class is %s", e.getKey(), e.getValue().getAsString());
+                System.out.println();
             } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | InvalidObjectException e1) {
 
                 e1.printStackTrace();
@@ -56,6 +59,7 @@ public class CommandListParser {
     	CommandListener.getCommandRegistry().clearRegistry();
     	
     	// add default commands, if enabled in settings
+        CommandListener.addCommand("refresh", new CommandRefresh());
     	if(Settings.helpCommandActive) CommandListener.addCommand("help", new CommandHelp());
     	if(Settings.shutdownCommandActive) {
     		
