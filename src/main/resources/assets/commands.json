@@ -1,4 +1,5 @@
 {
   "commands": {
+    "vote": "io.github.shadowchild.growlithe.bot.command.vote.CommandVote"
   }
 }
