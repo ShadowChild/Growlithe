@@ -44,7 +44,7 @@ public class CommandListParser {
 
                 ICommand command = (ICommand)obj;
                 CommandListener.addCommand(e.getKey(), command);
-                System.out.printf("Registering Command %s, class is %s", e.getKey(), e.getValue().getAsString());
+                System.out.printf("Registering Command '%s', class is '%s'", e.getKey(), e.getValue().getAsString());
                 System.out.println();
             } catch(ClassNotFoundException | InstantiationException | IllegalAccessException | InvalidObjectException e1) {
 

@@ -39,4 +39,12 @@ public class CommandRefresh implements ICommand {
 
         return "refresh <cmds/settings>";
     }
+
+    @Override
+    public String[] getHelpMessage() {
+
+        return new String[] {
+                "Refreshes the Command List or the Settings File"
+        };
+    }
 }

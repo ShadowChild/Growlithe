@@ -2,7 +2,6 @@ package io.github.shadowchild.growlithe.bot.command;
 
 
 import io.github.shadowchild.growlithe.utils.EnumPermission;
-
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 
@@ -18,4 +17,6 @@ public interface ICommand {
     EnumPermission getPermissionLevel(Map<String, String> overwrittenPermissions);
 
     String getUsage();
+
+    String[] getHelpMessage();
 }

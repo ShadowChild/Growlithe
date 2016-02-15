@@ -30,6 +30,14 @@ public class CommandPokeball implements ICommand {
     @Override
     public String getUsage() {
 
-        return null;
+        return "shutdown";
+    }
+
+    @Override
+    public String[] getHelpMessage() {
+
+        return new String[] {
+                "Shuts down the instance of " + Growlithe.bot.getNick()
+        };
     }
 }

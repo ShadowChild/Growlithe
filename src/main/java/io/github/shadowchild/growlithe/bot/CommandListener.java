@@ -26,11 +26,12 @@ public class CommandListener extends ListenerAdapter<GrowlitheBot> {
     public void onMessage(MessageEvent<GrowlitheBot> event) throws Exception {
 
         String message = event.getMessage().toLowerCase();
+        String commandString = "-" + event.getBot().getNick().toLowerCase();
 
-        if(StringUtils.startsWith(message, "-" + event.getBot().getNick().toLowerCase())) {
+        if(StringUtils.startsWith(message, commandString)) {
 
             // TODO: FIX THIS - I'VE FORGOTTEN WHAT'S EVEN BROKEN
-            String[] args = message.replace("-" + event.getBot().getNick().toLowerCase() + " ", "").split(" ");
+            String[] args = message.replace(commandString + " ", "").split(" ");
             String command = args[0];
 
             String[] processedArgs = new String[args.length - 1];
