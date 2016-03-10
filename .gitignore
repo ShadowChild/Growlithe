@@ -1,16 +1,4 @@
-.idea/
-Growlithe.iml
-META-INF/
-libs/
-out/
-runtime/
-target/
-build/
 
-# Explicit references
-src/main/resources/assets/profile.json
-
-# Eclipse stuff
-*.classpath
-*.prefs
-*.project
+packages/
+Arcanine/bin/
+Arcanine/obj/
