@@ -1,7 +1,4 @@
-.idea/
-Growlithe.iml
-META-INF/
-lib/
-out/
-runtime/
-target/
+
+packages/
+Arcanine/bin/
+Arcanine/obj/
